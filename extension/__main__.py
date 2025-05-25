@@ -44,70 +44,63 @@ class Usuario:
 
 def main():
     biblioteca_senai = Biblioteca()
-    print("\n Olá! Seja bem-vindo ao sistema da Biblioteca Senai!")
-    print("\n Digite 1 para Cadastrar um Usuário \n Digite 2 para Cadastrar um Livro \n Digite 3 para Cadastrar um Empréstimo de Livro \n Digite 4 para ver o Histórico de Empréstimos por Livro \n Digite 5 para ver o Histórico de Empréstimo por Usuário \n Digite 6 para ver as Categorias de Livros \n Digite 7 para sair")
-    opcao = input("\n Digite a opção desejada: ")
 
-    match opcao:
-        case '1':
-            print("\nVocê escolheu Cadastrar um Usuário!")
-            nome = input("\nDigite o nome do usuário: ")
-            cpf = input("\nDigite o CPF do usuário (XXX.XXX.XXX-XX): ")
-            telefone = input("\nDigite o telefone do usuário ((XX) XXXXX-XXXX): ")
-            data_nascimento = input("\nDigite a data de nascimento do usuário (DD/MM/AAAA): ")
-            data_cadastro = date.today().strftime("%d/%m/%Y")
+    while True:
+        print("\n Olá! Seja bem-vindo ao sistema da Biblioteca Senai!")
+        print("\n Digite 1 para Cadastrar um Usuário \n Digite 2 para Cadastrar um Livro \n Digite 3 para Cadastrar um Empréstimo de Livro \n Digite 4 para ver o Histórico de Empréstimos por Livro \n Digite 5 para ver o Histórico de Empréstimo por Usuário \n Digite 6 para ver as Categorias de Livros \n Digite 7 para sair")
+        opcao = input("\n Digite a opção desejada: ")
+
+        match opcao:
+            case '1':
+                print("\nVocê escolheu Cadastrar um Usuário!")
+                nome = input("\nDigite o nome do usuário: ")
+                cpf = input("\nDigite o CPF do usuário (XXX.XXX.XXX-XX): ")
+                telefone = input("\nDigite o telefone do usuário ((XX) XXXXX-XXXX): ")
+                data_nascimento = input("\nDigite a data de nascimento do usuário (DD/MM/AAAA): ")
+                data_cadastro = date.today().strftime("%d/%m/%Y")
+                
+                usuario = Usuario(nome, cpf, telefone, data_nascimento, data_cadastro)
+                biblioteca_senai.cadastrar_usuario(usuario)
+                
+                print(f"\nUsuário '{usuario.nome}' cadastrado com sucesso!")
+
+            case '2':
+                print("\n Você escolheu Cadastrar um Livro!")
+                titulo = input("\nDigite o título do livro: ")
+                autor = input("\nDigite o autor do livro: ")
+                isbn = input("\nDigite o ISBN do livro: ")
+                categoria = input("\nDigite a categoria do livro: ")
+                ano_publicacao = input("\nDigite o ano de publicação do livro: ")
+                data_cadastro = date.today().strftime("%d/%m/%Y")
+
+                livro = Livro(titulo, autor, isbn, categoria, ano_publicacao, data_cadastro)
+                biblioteca_senai.adicionar_livro(livro)
+
+                print(f"\nLivro '{livro.titulo}' cadastrado com sucesso!")
+
+            # case '3':
             
-            usuario = Usuario(nome, cpf, telefone, data_nascimento, data_cadastro)
-            biblioteca_senai.cadastrar_usuario(usuario)
+            # case '4':
             
-            print(f"\nUsuário '{usuario.nome}' cadastrado com sucesso!")
-            
-        case '2':
-            print("\n Você escolheu Cadastrar um Livro!")
-            titulo = input("\nDigite o título do livro: ")
-            autor = input("\nDigite o autor do livro: ")
-            isbn = input("\nDigite o ISBN do livro")
-            categoria = input("\nDigite a categoria do livro: ")
-            ano_publicacao = input("\nDigite o ano de publicação do livro: ")
-            data_cadastro = date.today().strftime("%d/%m/%Y")
-            
-            # Isso aqui vai criar um dicionário com os dados do livro (não foi o GPT que fez isso, foi eu Gabriele)
-            livro = Livro(titulo, autor, isbn, categoria, ano_publicacao, data_cadastro)
-            biblioteca_senai.adicionar_livro(livro)
-            
-            print(f"\nLivro '{livro.titulo}' cadastrado com sucesso!")
-            
-        case '3':
-            print("\nVocê escolheu Cadastrar um Empréstimo de Livro!")
-            
-            cpf = input("\nDigite o CPF do usuário (XXX.XXX.XXX-XX): ")
-            if cpf not in biblioteca_senai.usuarios:
-                print("\nUsuário não encontrado!")
-                return
-            
-            titulo = input("\nDigite o título do livro: ")
-            if titulo not in biblioteca_senai.livros:
-                print("\nLivro não encontrado!")
-                return
-            
-            data_emprestimo = date.today().strftime("%d/%m/%Y")
-            usuario = biblioteca_senai.usuarios[cpf]
-            livro = biblioteca_senai.livros[titulo]
-            
-            if cpf not in biblioteca_senai.emprestimos:
-                biblioteca_senai.emprestimos[cpf] = []
-            biblioteca_senai.emprestimos[cpf].append((livro.titulo, data_emprestimo))
-            
-            print(f"\nLivro '{livro.titulo}' emprestado para o usuário '{usuario.nome}' com sucesso no dia {data_emprestimo}!")
-            
-        # case '4':
-            
-        # case '5':
-            
-        # case '6':
-        
-        case '7':
-            print("Obrigado por usar o sistema da Biblioteca Senai!")
-            print("Até logo!")
-            sys.exit()
-        
+            # case ''
+
+            case '6':
+                print("\n Você escolheu ver as Categorias de Livros!")
+
+                if biblioteca_senai.categorias:
+                    print("\nCategorias de Livros:")
+                    for categoria in sorted(biblioteca_senai.categorias):
+                        print(f"- {categoria}")
+                else:
+                    print("\nNenhuma categoria de livro cadastrada!")
+
+            case '7':
+                print("Obrigado por usar o sistema da Biblioteca Senai!")
+                print("Até logo!")
+                sys.exit()
+
+            case _:
+                print("Opção inválida. Tente novamente.")
+
+if __name__ == "__main__":
+    main()
