@@ -31,6 +31,15 @@ O sistema foi pensado para facilitar a gestão dos cadastros, empréstimos e vis
 <br>
 
 <h3>Organização do código</h3>
+docs/ <br>
+  ├─ system_flowchart.md <br>
+extension/ <br>
+  ├─ __pycache__/ <br>
+    ├─ __init__.cpython-312.pyc <br>
+    ├─ __main__.cpython-312.pyc <br>
+  ├─ __init__.py <br>
+  ├─ __main__.py <br>
+
 <br>
 
 <h3>Como executar</h3>
