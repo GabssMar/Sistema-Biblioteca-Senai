@@ -48,7 +48,7 @@ Após realizar as requisições acima, extraia os arquivos do projeto e acesse a
  1 - Consultas
  2 - Cadastros
  3 - Empréstimos
- # - Sair
+ "hashtag" - Sair
  Digite a opção desejada:
   
 ### Fluxograma
