@@ -44,20 +44,13 @@ Após realizar as requisições acima, extraia os arquivos do projeto e acesse a
 
 ### Exemplo de uso
 --Menu Principal--  
-Olá! Seja bem-vindo ao sistema da Biblioteca Senai!  
-  
- Digite 1 para Cadastrar um Usuário  
- Digite 2 para Cadastrar um Livro  
- Digite 3 para Cadastrar um Empréstimo de Livro  
- Digite 4 para Cadastrar uma Devolução de Livro  
- Digite 5 para ver o Histórico de Empréstimos por Livro  
- Digite 6 para ver o Histórico de Empréstimo por Usuário  
- Digite 7 para ver as Categorias de Livros  
- Digite 8 para sair  
-  
+--- Olá! Seja bem-vindo ao sistema da Biblioteca Senai! ---
+ 1 - Consultas
+ 2 - Cadastros
+ 3 - Empréstimos
+ # - Sair
  Digite a opção desejada:
   
-
 ### Fluxograma
 Para visualizar o fluxograma, [clique aqui!](docs/system_flowchart.md).  
 
@@ -67,5 +60,4 @@ Para visualizar o fluxograma, [clique aqui!](docs/system_flowchart.md).
 - **Tuplas:** Utilizadas para representar dados imutáveis de livros, usuários e empréstimos, facilitando a manter a integridade dos dados.
 - **Sets:** Foram utilizados para guardar categorias únicas de livros, permitindo consultas mais rápidas.
 - **Dicionarios:** Escolhidos para armazenar livros, usuários, empréstimos e filas de espera, para deixar as informações de forma visível e clara.
-- **Listas encadeadas:**
-
+- **Listas encadeadas:** Utilizadas para armazenar os usuários cadastrados, permitindo inserções dinâmicas sem a necessidade de realocar posições na memória. Essa estrutura foi escolhida para representar melhor o crescimento contínuo da lista de usuários e facilitar operações de inserção e remoção.
