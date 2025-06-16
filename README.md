@@ -45,11 +45,11 @@ Após realizar as requisições acima, extraia os arquivos do projeto e acesse a
 ### Exemplo de uso
 --Menu Principal--  
 --- Olá! Seja bem-vindo ao sistema da Biblioteca Senai! ---
- 1 - Consultas
- 2 - Cadastros
- 3 - Empréstimos
- "hashtag" - Sair
- Digite a opção desejada:
+   1 - Consultas
+   2 - Cadastros
+   3 - Empréstimos
+   "hashtag" - Sair
+   Digite a opção desejada:
   
 ### Fluxograma
 Para visualizar o fluxograma, [clique aqui!](docs/system_flowchart.md).  
